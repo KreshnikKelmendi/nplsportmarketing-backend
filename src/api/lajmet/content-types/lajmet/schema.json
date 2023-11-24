@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "lajmets",
+  "info": {
+    "singularName": "lajmet",
+    "pluralName": "lajmets",
+    "displayName": "Lajmet"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    }
+  }
+}
