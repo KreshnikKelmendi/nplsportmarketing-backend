@@ -14,15 +14,7 @@ module.exports = [
       },
     },
   },
-  {
-  settings: {
-    cors: {
-      enabled: true,
-      headers: '*',
-      methods: '*',
-    },
-  },
-},
+  'strapi::cors',
   'strapi::poweredBy',
   'strapi::logger',
   'strapi::query',
