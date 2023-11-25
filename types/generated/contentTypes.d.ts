@@ -368,12 +368,22 @@ export interface ApiLajmetLajmet extends Schema.CollectionType {
     singularName: 'lajmet';
     pluralName: 'lajmets';
     displayName: 'Lajmet';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
     title: Attribute.String;
+    date: Attribute.Date;
+    img: Attribute.Media & Attribute.Required;
+    description: Attribute.Text & Attribute.Required;
+    image1: Attribute.Media;
+    image2: Attribute.Media;
+    image3: Attribute.Media;
+    image4: Attribute.Media;
+    image5: Attribute.Media;
+    image6: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -385,6 +395,39 @@ export interface ApiLajmetLajmet extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::lajmet.lajmet',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiShpalljetShpalljet extends Schema.CollectionType {
+  collectionName: 'shpalljets';
+  info: {
+    singularName: 'shpalljet';
+    pluralName: 'shpalljets';
+    displayName: 'Shpalljet';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    date: Attribute.Date;
+    image: Attribute.Media;
+    description: Attribute.Text;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::shpalljet.shpalljet',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::shpalljet.shpalljet',
       'oneToOne',
       'admin::user'
     > &
@@ -718,6 +761,7 @@ declare module '@strapi/types' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'api::lajmet.lajmet': ApiLajmetLajmet;
+      'api::shpalljet.shpalljet': ApiShpalljetShpalljet;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::i18n.locale': PluginI18NLocale;
